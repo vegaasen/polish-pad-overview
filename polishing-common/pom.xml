@@ -9,26 +9,15 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>polishing-controller</artifactId>
+    <artifactId>polishing-common</artifactId>
+
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
-            <groupId>com.vegaasen.web.services</groupId>
-            <artifactId>polishing-services</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jetty</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
     </dependencies>
-
-    <properties>
-        <default.port>7004</default.port>
-        <default.compression>default.compression</default.compression>
-    </properties>
 
 </project>

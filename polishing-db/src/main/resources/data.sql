@@ -1,0 +1,1 @@
+INSERT INTO Brand (name, description, url) VALUES ('Test company', 'Test description', 'http://www.somewhere.com')

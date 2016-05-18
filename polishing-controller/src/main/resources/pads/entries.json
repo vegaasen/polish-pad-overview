@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1,
+    "name": "cool beans",
+    "description": "description",
+    "url": "http://somewhe.re",
+    "updated": "May 18, 2016 10:11:57 PM",
+    "created": "May 18, 2016 10:11:57 PM",
+    "pads": [
+      {
+        "id": null,
+        "name": "name",
+        "description": "description",
+        "directLink": "http://whereev.er",
+        "specification": {
+          "grade": 3500,
+          "padToughness": "FINE"
+        },
+        "padType": "FOAM",
+        "brand": null,
+        "index": 0
+      }
+    ]
+  }
+]

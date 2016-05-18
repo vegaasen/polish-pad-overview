@@ -9,26 +9,27 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>polishing-controller</artifactId>
+    <artifactId>polishing-db</artifactId>
+
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
             <groupId>com.vegaasen.web.services</groupId>
-            <artifactId>polishing-services</artifactId>
+            <artifactId>polishing-common</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jetty</artifactId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
+        <!--<dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>-->
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
         </dependency>
     </dependencies>
-
-    <properties>
-        <default.port>7004</default.port>
-        <default.compression>default.compression</default.compression>
-    </properties>
 
 </project>

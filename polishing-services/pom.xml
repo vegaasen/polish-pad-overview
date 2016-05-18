@@ -11,4 +11,21 @@
 
     <artifactId>polishing-services</artifactId>
 
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.vegaasen.web.services</groupId>
+            <artifactId>polishing-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>
