@@ -19,6 +19,8 @@ interface PadService {
      */
     int numberOfPads();
 
+    Set<Pad> getPads();
+
     /**
      * Get pads based on a specific type of toughness
      *

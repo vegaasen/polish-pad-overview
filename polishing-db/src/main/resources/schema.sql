@@ -1,6 +1,10 @@
-DROP TABLE Brand;
+DROP TABLE IF EXISTS Brand;
 
-CREATE create table Brand (
-  IDENTITY int not null AUTO_INCREMENT,
-
+CREATE TABLE Brand (
+  ID          INT NOT NULL AUTO_INCREMENT,
+  NAME        VARCHAR2(100),
+  DESCRIPTION TEXT,
+  URL         TEXT,
+  UPDATED     DATETIME,
+  CREATED     DATETIME
 );

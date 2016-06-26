@@ -23,4 +23,20 @@ interface BrandService {
      */
     Set<Brand> getAllBrands();
 
+    /**
+     * Get brand by uuid
+     *
+     * @param uuid _
+     * @return _
+     */
+    Brand getBrand(String uuid);
+
+    /**
+     * Get brand by id
+     *
+     * @param id _
+     * @return _
+     */
+    Brand getBrand(long id);
+
 }

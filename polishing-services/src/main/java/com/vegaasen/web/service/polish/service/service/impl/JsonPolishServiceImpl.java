@@ -7,6 +7,7 @@ import com.vegaasen.web.service.polish.common.domain.pad.PadType;
 import com.vegaasen.web.service.polish.service.service.PolishService;
 import com.vegaasen.web.service.polish.service.util.PolishingUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
 import java.util.Collections;
@@ -14,14 +15,16 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * @author <a href="vegaasen@gmail.com">vegardaasen</a>
  */
-@Service("polishService")
-public class PolishServiceImpl implements PolishService {
+@Service("jsonPolishService")
+public class JsonPolishServiceImpl implements PolishService {
 
-    public static final int UNDEFINED = -1;
+    private static final int UNDEFINED = -1;
+
     @Resource
     private PolishingUtils polishingUtils;
 
@@ -46,18 +49,35 @@ public class PolishServiceImpl implements PolishService {
     }
 
     @Override
+    public Brand getBrand(String uuid) {
+        return getAllBrands().parallelStream().filter(b -> b.getName().equals(uuid)).findFirst().orElseGet(null);
+    }
+
+    @Override
+    public Brand getBrand(long id) {
+        return getAllBrands().parallelStream().filter(b -> b.getId() == id).findFirst().orElseGet(null);
+    }
+
+    @Override
     public int numberOfPads() {
-        return UNDEFINED;
+        return getAllPads().size();
+    }
+
+    @Override
+    public Set<Pad> getPads() {
+        return getAllPads();
     }
 
     @Override
     public Set<Pad> getPads(PadToughness padToughness) {
-        return null;
+        Set<Pad> pads = getAllPads();
+        return CollectionUtils.isEmpty(pads) ? pads : pads.parallelStream().filter(p -> p.getSpecification().getPadToughness().equals(padToughness)).collect(Collectors.toSet());
     }
 
     @Override
     public Set<Pad> getPads(PadType padType) {
-        return null;
+        Set<Pad> pads = getAllPads();
+        return CollectionUtils.isEmpty(pads) ? pads : pads.parallelStream().filter(p -> p.getPadType().equals(padType)).collect(Collectors.toSet());
     }
 
     @Override
@@ -78,5 +98,11 @@ public class PolishServiceImpl implements PolishService {
     @Override
     public Set<Pad> getPads(int from, int to) {
         return null;
+    }
+
+    private Set<Pad> getAllPads() {
+        Set<Pad> pads = new HashSet<>();
+        polishingUtils.get().parallelStream().forEach(b -> pads.addAll(b.getPads()));
+        return pads;
     }
 }

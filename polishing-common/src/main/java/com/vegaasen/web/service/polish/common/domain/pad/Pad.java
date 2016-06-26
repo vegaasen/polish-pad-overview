@@ -31,7 +31,7 @@ public class Pad implements Serializable {
     @Column
     private String directLink;
     @Column
-    private PadSpecification specification;
+    private PadSpecification specification = PadSpecification.empty();
     @Column(nullable = false)
     @Enumerated(value = EnumType.ORDINAL)
     private PadType padType;

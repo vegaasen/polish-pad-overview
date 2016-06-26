@@ -17,6 +17,8 @@ import java.util.Date;
 import java.util.Set;
 
 /**
+ * todo: uuid?
+ *
  * @author <a href="vegaasen@gmail.com">vegardaasen</a>
  */
 @Entity
